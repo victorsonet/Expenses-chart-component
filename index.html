@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Expenses chart component</title>
+</head>
+<body>
+  <div class="card">
+    <header class="card-header">
+      <div class="left-header">
+        <p class="balance-text">My balance</p>
+        <h1 class="balance-number">$921.48</h1>
+      </div>
+      <div class="right-header">
+        <div class="logo"></div>
+      </div>
+    </header>
+    <main class="card-content">
+      <div class="upper-part">
+        <h2 class="spending">Spending - Last 7 days</h2>
+        <div class="graph">
+          <canvas id="myChart" class="myChart" width="400" height="220rem"></canvas>
+        </div>
+      </div>
+      <hr class="hr">
+      <div class="lower-part">
+        <div class="total-amount">
+          <p class="total-amount-text">
+            Total this month
+          </p>
+          <h2 class="total-amount-number">$478.33</h2>
+        </div>
+        <div class="percentage-last-month">
+          <p class="percentage-number">+2.4%</p>
+          <p class="percentage-text">from last month</p>
+        </div>
+      </div>
+    </main>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
