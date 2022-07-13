@@ -1,6 +1,14 @@
 const labels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 let dataArray = [];
 const totalSpending = document.querySelector('.total-amount-number');
+let monColor = 'hsl(10, 79%, 65%)';
+let tueColor = 'hsl(10, 79%, 65%)';
+let wedColor = 'hsl(10, 79%, 65%)';
+let thuColor = 'hsl(10, 79%, 65%)';
+let friColor = 'hsl(10, 79%, 65%)';
+let satColor = 'hsl(10, 79%, 65%)';
+let sunColor = 'hsl(10, 79%, 65%)';
+let blue = 'hsl(186, 34%, 60%)';
 
 fetch('data.json')
 .then (response => response.json())
@@ -14,6 +22,25 @@ fetch('data.json')
   myChart.update()
 })
 
+const dates = new Date();
+const day = labels[dates.getDay()-1];
+
+if (day == 'Mon') {
+  monColor = blue;
+} else if (day == 'Tue') {
+  tueColor = blue;
+} else if (day === 'Wed') {
+  wedColor = blue;
+} else if (day == 'Thu') {
+  thuColor = blue;
+} else if (day == 'Fri') {
+  friColor = blue;
+} else if (day == 'Sat') {
+  satColor = blue;
+} else if (day == 'Sun') {
+  sunColor = blue;
+}
+
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
   type: 'bar',
@@ -23,13 +50,13 @@ const myChart = new Chart(ctx, {
           label: 'USD $',
           data: dataArray,
           backgroundColor: [
-              'hsl(10, 79%, 65%)',
-              'hsl(10, 79%, 65%)',
-              'hsl(186, 34%, 60%)',
-              'hsl(10, 79%, 65%)',
-              'hsl(10, 79%, 65%)',
-              'hsl(10, 79%, 65%)',
-              'hsl(10, 79%, 65%)'
+              monColor,
+              tueColor,
+              wedColor,
+              thuColor,
+              friColor,
+              satColor,
+              sunColor
           ],
           borderRadius: 5,
           borderSkipped: false    
@@ -61,3 +88,4 @@ const myChart = new Chart(ctx, {
       }
   }
 });
+
