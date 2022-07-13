@@ -46,11 +46,6 @@ body {
     font-size: 1.6875rem;
 }
 
-.right-header {
-    width: 4rem;
-    height: 3.5rem;
-}
-
 .logo {
     background-image: url(/images/logo.svg);
     background-repeat: no-repeat;
