@@ -1,13 +1,27 @@
-let mon;
+const labels = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+let dataArray = [];
+const totalSpending = document.querySelector('.total-amount-number');
+
+fetch('data.json')
+.then (response => response.json())
+.then ((obj) => {
+  let sum = 0
+  for(let i = 0; i < obj.length; i++){
+    dataArray.push(obj[i].amount);
+    sum += obj[i].amount;
+    totalSpending.textContent = `$${sum}`;
+  }
+  myChart.update()
+})
 
 const ctx = document.getElementById('myChart');
 const myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      labels: labels,
       datasets: [{
           label: 'USD $',
-          data: [17.45, 34.91, 52.36, 31.07, 23.39, 43.28, 25.48],
+          data: dataArray,
           backgroundColor: [
               'hsl(10, 79%, 65%)',
               'hsl(10, 79%, 65%)',
